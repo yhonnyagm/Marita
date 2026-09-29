@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -13,24 +13,27 @@ html, body {
   padding: 0;
 }
 
+/* Fondo Rosa Pastel con textura Polka-Dots estilo Hello Kitty */
 body {
- font-family: "Plus Jakarta Sans", sans-serif;
- background-color: #0f0a12;
+  font-family: "Quicksand", sans-serif;
+  background-color: #ffd8e8;
   background-image: 
-    radial-gradient(circle at 10% 15%, rgba(255, 105, 180, 0.28) 0%, transparent 40%),
-    radial-gradient(circle at 90% 85%, rgba(255, 75, 130, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, #170d1a 0%, #09060b 100%);
-  color: #ffffff;
+    radial-gradient(#ffffff 18%, transparent 19%),
+    radial-gradient(#ffbcd9 18%, transparent 19%),
+    linear-gradient(135deg, #ffeef6 0%, #ffc2dc 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-position: 0 0, 20px 20px, 0 0;
+  color: #5c3849;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 24px 16px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-/* Capa de siluetas flotantes */
-.floating-bg-elements {
+/* Contenedor de Stickers Flotantes */
+.kawaii-floating-stickers {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -38,137 +41,57 @@ body {
   overflow: hidden;
 }
 
-.float-item {
+.sticker {
   position: absolute;
-  color: rgba(255, 140, 178, 0.16);
-  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
-  animation: floatMovement 16s infinite ease-in-out;
+  color: #ff5c97;
+  opacity: 0.35;
+  filter: drop-shadow(0 4px 10px rgba(255, 92, 151, 0.4));
+  animation: floatKawaii 10s infinite ease-in-out alternate;
 }
 
-/* Distribución y tamaños aleatorios */
-.item-1 {
-  top: 12%;
-  left: 8%;
-  font-size: 2.8rem;
-  animation-duration: 14s;
-  transform: rotate(-18deg);
+.s-1 { top: 10%; left: 8%; font-size: 2.4rem; animation-duration: 9s; }
+.s-2 { top: 78%; left: 10%; font-size: 2.2rem; animation-duration: 11s; animation-delay: -2s; }
+.s-3 { top: 16%; right: 12%; font-size: 1.8rem; animation-duration: 8s; animation-delay: -3s; }
+.s-4 { top: 40%; left: 5%; font-size: 2.6rem; color: #ffffff; opacity: 0.55; animation-duration: 14s; }
+.s-5 { top: 72%; right: 9%; font-size: 2.1rem; animation-duration: 10s; animation-delay: -4s; }
+.s-6 { top: 48%; right: 6%; font-size: 1.7rem; animation-duration: 12s; animation-delay: -1s; }
+.s-7 { bottom: 8%; left: 45%; font-size: 1.5rem; animation-duration: 7s; }
+
+@keyframes floatKawaii {
+  0% { transform: translateY(0) rotate(-6deg) scale(0.95); }
+  100% { transform: translateY(-24px) rotate(8deg) scale(1.08); }
 }
 
-.item-2 {
-  top: 75%;
-  left: 12%;
-  font-size: 2rem;
-  animation-duration: 18s;
-  animation-delay: -3s;
-}
-
-.item-3 {
-  top: 18%;
-  right: 12%;
-  font-size: 2.4rem;
-  animation-duration: 20s;
-  animation-delay: -5s;
-}
-
-.item-4 {
-  top: 72%;
-  right: 10%;
-  font-size: 3.2rem;
-  animation-duration: 16s;
-  animation-delay: -8s;
-  transform: rotate(20deg);
-}
-
-.item-5 {
-  top: 45%;
-  left: 3%;
-  font-size: 1.8rem;
-  animation-duration: 22s;
-  animation-delay: -2s;
-}
-
-.item-6 {
-  top: 40%;
-  right: 4%;
-  font-size: 1.9rem;
-  animation-duration: 17s;
-  animation-delay: -6s;
-}
-
-/* Animación sutil de flotación y balanceo */
-@keyframes floatMovement {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.12;
-  }
-  50% {
-    transform: translateY(-28px) rotate(12deg);
-    opacity: 0.28;
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.12;
-  }
-}
-
-/* Asegurar que la tarjeta quede por encima del fondo animado */
+/* Tarjeta Principal Brillante y Suave */
 .kitty-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 36px;
+  border: 4px solid #ffffff;
+  box-shadow: 
+    0 20px 40px rgba(255, 105, 160, 0.22),
+    0 8px 16px rgba(180, 70, 110, 0.08);
+  overflow: hidden;
   position: relative;
   z-index: 1;
 }
 
-/* Tarjeta Principal Kitty */
-.kitty-card {
-  width: 100%;
-  max-width: 520px;
-  background: rgba(26, 20, 30, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 182, 206, 0.2);
-  box-shadow:
-    0 25px 60px -10px rgba(0, 0, 0, 0.8),
-    0 0 25px rgba(255, 105, 180, 0.15);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Banner de Portada */
+/* Portada */
 .card-cover {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 175px;
   background: url("../kitty-banner.jpg") no-repeat center center / cover;
-  background-color: #2b1f2e;
+  background-color: #ffd0e3;
+  border-bottom: 3px solid rgba(255, 182, 206, 0.4);
 }
 
-.cover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(20, 14, 23, 0.2) 0%, rgba(26, 20, 30, 0.98) 100%);
-}
-
-.bow-badge {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 75, 130, 0.25);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 182, 206, 0.35);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ff6599;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(255, 75, 130, 0.2);
-}
-
-/* Cuerpo de la Tarjeta */
+/* Contenido Principal */
 .card-content {
-  padding: 0 24px 20px 24px;
+  padding: 0 24px 22px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,52 +100,52 @@ body {
   position: relative;
 }
 
-/* Avatar con borde pastel */
+/* Avatar Pastel */
 .avatar-wrapper {
   position: relative;
   margin-bottom: 12px;
 }
 
 .avatar-photo {
-  width: 175px;
-  height: 175px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
   object-position: center 20%;
   border-radius: 50%;
-  border: 4px solid #1a141e;
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.7),
-    0 0 0 2px rgba(255, 133, 173, 0.4);
-  background-color: #2b2030;
+  border: 5px solid #ffffff;
+  box-shadow: 
+    0 10px 25px rgba(255, 92, 151, 0.3),
+    0 0 0 4px #ff94be;
+  background-color: #ffe6f0;
   display: block;
   transition: transform 0.3s ease;
 }
 
 .avatar-photo:hover {
-  transform: scale(1.04);
+  transform: scale(1.04) rotate(2deg);
 }
 
-/* Punto de Estado Rosa Neón */
+/* Punto de Estado Fucsia Kawaii */
 .status-dot {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background-color: #ff3377;
-  border: 3.5px solid #1a141e;
+  border: 4px solid #ffffff;
   border-radius: 50%;
   bottom: 12px;
   right: 14px;
-  box-shadow: 0 0 12px #ff3377;
-  animation: pulse-kitty 2s infinite;
+  box-shadow: 0 0 12px rgba(255, 51, 119, 0.6);
+  animation: pulse-dot 2s infinite;
 }
 
-@keyframes pulse-kitty {
-  0% { box-shadow: 0 0 0 0 rgba(255, 51, 119, 0.7); }
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(255, 51, 119, 0.6); }
   70% { box-shadow: 0 0 0 8px rgba(255, 51, 119, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 51, 119, 0); }
 }
 
-/* Datos de Usuario */
+/* Identidad y Tipografía Animada */
 .user-details {
   display: flex;
   flex-direction: column;
@@ -231,23 +154,24 @@ body {
 }
 
 .user-name {
-  font-family: "Quicksand", sans-serif;
-  font-size: 1.8rem;
+  font-family: "Fredoka", cursive, sans-serif;
+  font-size: 2rem;
   font-weight: 700;
-  color: #fff0f5;
+  color: #ff2a74;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(255, 42, 116, 0.15);
 }
 
-.spark-icon {
-  font-size: 0.95rem;
-  color: #ff8cb2;
+.user-name span {
+  font-size: 1.6rem;
+  color: #ff6699;
 }
 
-/* Pastillas de ID y País */
+/* Etiquetas Cápsula */
 .tags-container {
   display: flex;
   align-items: center;
@@ -257,26 +181,26 @@ body {
 }
 
 .id-tag {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #e5b9cb;
-  background: rgba(255, 140, 178, 0.1);
-  border: 1px solid rgba(255, 140, 178, 0.2);
-  padding: 4px 10px;
-  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ff4382;
+  background: #ffe8f2;
+  border: 1.5px solid #ffbdd8;
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 .country-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  color: #f7d6e4;
-  background: rgba(255, 140, 178, 0.1);
-  border: 1px solid rgba(255, 140, 178, 0.2);
-  padding: 4px 10px;
-  border-radius: 10px;
+  color: #ff4382;
+  background: #ffe8f2;
+  border: 1.5px solid #ffbdd8;
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 .flag-icon {
@@ -286,23 +210,21 @@ body {
 }
 
 .status-bio {
-  font-size: 0.85rem;
-  color: #b59fa9;
-  font-style: italic;
+  font-size: 0.9rem;
+  color: #8c5d73;
+  font-weight: 600;
   max-width: 320px;
   line-height: 1.4;
+  margin-top: 2px;
 }
 
-/* Enlaces y Botones */
+/* Contenedor del Botón */
 .links-wrapper {
   width: 100%;
-  max-width: 330px;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
+  max-width: 310px;
 }
 
-/* Botón Destacado Hello Kitty (Rosa fuerte/Carmesí suave) */
+/* Botón Exclusivo Deymians (Rosa Fucsia Brillante) */
 .kitty-btn-primary {
   position: relative;
   display: flex;
@@ -310,15 +232,17 @@ body {
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 13px 20px;
-  background: linear-gradient(135deg, #ff4b82 0%, #e02462 100%);
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #ff4f8b 0%, #ff266d 100%);
   color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: "Fredoka", cursive, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 20px rgba(255, 75, 130, 0.35);
+  border-radius: 22px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 10px 22px rgba(255, 38, 109, 0.35);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -336,15 +260,15 @@ body {
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   transform: skewX(-20deg);
   transition: left 0.6s ease;
   z-index: 1;
 }
 
 .kitty-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(255, 75, 130, 0.5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 26px rgba(255, 38, 109, 0.45);
 }
 
 .kitty-btn-primary:hover::after {
@@ -352,56 +276,33 @@ body {
 }
 
 .beat-icon {
-  animation: pulse-heart 1.8s infinite;
+  color: #ffffff;
+  animation: pulse-heart 1.6s infinite;
 }
 
 @keyframes pulse-heart {
   0%, 100% { transform: scale(1); }
-  14%, 42% { transform: scale(1.22); }
+  14%, 42% { transform: scale(1.25); }
   28% { transform: scale(1); }
 }
 
-/* Botón Secundario Translúcido */
-.kitty-btn-secondary {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 12px 20px;
-  background: rgba(255, 140, 178, 0.08);
-  color: #ffa6c5;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.92rem;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 140, 178, 0.25);
-  transition: all 0.25s ease;
-}
-
-.kitty-btn-secondary:hover {
-  background: rgba(255, 140, 178, 0.2);
-  color: #ffffff;
-  border-color: rgba(255, 140, 178, 0.5);
-  transform: translateY(-2px);
-}
-
-/* Footer / Créditos */
+/* Footer / Créditos Dulces */
 .card-footer {
-  padding: 12px 20px 16px 20px;
+  padding: 10px 16px 14px 16px;
   text-align: center;
-  border-top: 1px solid rgba(255, 182, 206, 0.08);
+  border-top: 1.5px dashed #ffd1e4;
 }
 
 .card-footer p {
   font-size: 0.72rem;
-  color: #7d6874;
-  letter-spacing: 0.4px;
+  font-weight: 700;
+  color: #b5869c;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .mini-heart {
-  color: #ff4b82;
+  color: #ff3377;
   font-size: 0.7rem;
 }
 
@@ -412,7 +313,7 @@ body {
   }
 
   .card-cover {
-    height: 145px;
+    height: 140px;
   }
 
   .card-content {
@@ -425,10 +326,6 @@ body {
   }
 
   .user-name {
-    font-size: 1.5rem;
-  }
-
-  .links-wrapper {
-    max-width: 100%;
+    font-size: 1.65rem;
   }
 }
