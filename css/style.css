@@ -14,18 +14,107 @@ html, body {
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #120e14;
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(255, 117, 164, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(255, 64, 129, 0.16) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, #17111a 0%, #0d0a0f 100%);
+ font-family: "Plus Jakarta Sans", sans-serif;
+ background-color: #0f0a12;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(255, 105, 180, 0.28) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(255, 75, 130, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, #170d1a 0%, #09060b 100%);
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 24px 16px;
-  overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Capa de siluetas flotantes */
+.floating-bg-elements {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.float-item {
+  position: absolute;
+  color: rgba(255, 140, 178, 0.16);
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+  animation: floatMovement 16s infinite ease-in-out;
+}
+
+/* Distribución y tamaños aleatorios */
+.item-1 {
+  top: 12%;
+  left: 8%;
+  font-size: 2.8rem;
+  animation-duration: 14s;
+  transform: rotate(-18deg);
+}
+
+.item-2 {
+  top: 75%;
+  left: 12%;
+  font-size: 2rem;
+  animation-duration: 18s;
+  animation-delay: -3s;
+}
+
+.item-3 {
+  top: 18%;
+  right: 12%;
+  font-size: 2.4rem;
+  animation-duration: 20s;
+  animation-delay: -5s;
+}
+
+.item-4 {
+  top: 72%;
+  right: 10%;
+  font-size: 3.2rem;
+  animation-duration: 16s;
+  animation-delay: -8s;
+  transform: rotate(20deg);
+}
+
+.item-5 {
+  top: 45%;
+  left: 3%;
+  font-size: 1.8rem;
+  animation-duration: 22s;
+  animation-delay: -2s;
+}
+
+.item-6 {
+  top: 40%;
+  right: 4%;
+  font-size: 1.9rem;
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+
+/* Animación sutil de flotación y balanceo */
+@keyframes floatMovement {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translateY(-28px) rotate(12deg);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.12;
+  }
+}
+
+/* Asegurar que la tarjeta quede por encima del fondo animado */
+.kitty-card {
+  position: relative;
+  z-index: 1;
 }
 
 /* Tarjeta Principal Kitty */
