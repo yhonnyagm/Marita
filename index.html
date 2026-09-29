@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marita - XatSpace</title>
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <main class="kitty-card">
+      <!-- Portada de Fondo con lazo flotante -->
+      <div class="card-cover">
+        <div class="cover-overlay"></div>
+        <div class="bow-badge" title="Hello Kitty Mood">
+          <i class="fa-solid fa-ribbon"></i>
+        </div>
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="card-content">
+        <!-- Avatar y Estatus -->
+        <div class="avatar-wrapper">
+          <img
+            src="./kitty-avatar.jpg"
+            alt="Foto de perfil"
+            class="avatar-photo"
+          />
+          <span class="status-dot" title="Cute & Online"></span>
+        </div>
+
+        <!-- Identidad: Nombre, ID y País -->
+        <div class="user-details">
+          <h1 class="user-name">
+            Marita
+            <i class="fa-solid fa-sparkles spark-icon"></i>
+          </h1>
+
+          <div class="tags-container">
+            <span class="id-tag">#1526613604</span>
+            <span class="country-tag">
+              <img src="./ve.png" alt="País" class="flag-icon" />
+              <span>VE</span>
+            </span>
+          </div>
+
+          <p class="status-bio">“You can never have too many friends!”</p>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="links-wrapper">
+          <a href="#" class="kitty-btn-primary" target="_blank" rel="noopener">
+            <i class="fa-solid fa-heart beat-icon"></i>
+            <span>Deymians</span>
+          </a>
+
+          <a href="#" class="kitty-btn-secondary" target="_blank" rel="noopener">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Mensaje privado</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Créditos en marca de agua -->
+      <footer class="card-footer">
+        <p>XatSpace made with <i class="fa-solid fa-heart mini-heart"></i></p>
+      </footer>
+    </main>
+
+  </body>
+</html>
