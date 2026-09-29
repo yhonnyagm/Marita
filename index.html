@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marita - XatSpace</title>
+    <title>Marita - Hello Kitty Space</title>
 
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,27 +22,27 @@
   </head>
   <body>
 
-    <div class="floating-bg-elements" aria-hidden="true">
-      <span class="float-item item-1"><i class="fa-solid fa-ribbon"></i></span>
-      <span class="float-item item-2"><i class="fa-solid fa-heart"></i></span>
-      <span class="float-item item-3"><i class="fa-solid fa-star"></i></span>
-      <span class="float-item item-4"><i class="fa-solid fa-ribbon"></i></span>
-      <span class="float-item item-5"><i class="fa-solid fa-sparkles"></i></span>
-      <span class="float-item item-6"><i class="fa-solid fa-heart"></i></span>
+    <!-- Stickers Flotantes Estilo Kawaii (Sin lazos) -->
+    <div class="kawaii-floating-stickers" aria-hidden="true">
+      <span class="sticker s-1"><i class="fa-solid fa-heart"></i></span>
+      <span class="sticker s-2"><i class="fa-solid fa-ice-cream"></i></span>
+      <span class="sticker s-3"><i class="fa-solid fa-sparkles"></i></span>
+      <span class="sticker s-4"><i class="fa-solid fa-cloud"></i></span>
+      <span class="sticker s-5"><i class="fa-solid fa-star"></i></span>
+      <span class="sticker s-6"><i class="fa-solid fa-heart"></i></span>
+      <span class="sticker s-7"><i class="fa-solid fa-sparkles"></i></span>
     </div>
 
     <main class="kitty-card">
-      <!-- Portada de Fondo con lazo flotante -->
-      <div class="card-cover">
-        <div class="cover-overlay"></div>
-      </div>
+      <!-- Portada de Fondo con curvatura tierna -->
+      <div class="card-cover"></div>
 
       <!-- Contenido Principal -->
       <div class="card-content">
-        <!-- Avatar y Estatus -->
+        <!-- Avatar y Estatus Rosa Kawaii -->
         <div class="avatar-wrapper">
           <img
-            src="./HK.jpg"
+            src="./kitty-avatar.jpg"
             alt="Foto de perfil"
             class="avatar-photo"
           />
@@ -51,15 +51,12 @@
 
         <!-- Identidad: Nombre, ID y País -->
         <div class="user-details">
-          <h1 class="user-name">
-            Marita
-            <i class="fa-solid fa-sparkles spark-icon"></i>
-          </h1>
+          <h1 class="user-name">Marita <span>♡</span></h1>
 
           <div class="tags-container">
             <span class="id-tag">#1526613604</span>
             <span class="country-tag">
-              <img src="./co.png" alt="País" class="flag-icon" />
+              <img src="./co.png" alt="Colombia" class="flag-icon" />
               <span>COL</span>
             </span>
           </div>
@@ -67,14 +64,19 @@
           <p class="status-bio">“You can never have too many friends!”</p>
         </div>
 
-        <!-- Botones de Acción -->
+        <!-- Botón Único de Deymians -->
         <div class="links-wrapper">
-          <a href="#" class="kitty-btn-primary" target="_blank" rel="noopener">
+          <a href="https://xat.me/Deymians" class="kitty-btn-primary" target="_blank" rel="noopener">
             <i class="fa-solid fa-heart beat-icon"></i>
             <span>Deymians</span>
           </a>
         </div>
       </div>
+
+      <!-- Créditos / Watermark Kawaii -->
+      <footer class="card-footer">
+        <p>XatSpace made with <i class="fa-solid fa-heart mini-heart"></i></p>
+      </footer>
     </main>
 
   </body>
