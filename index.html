@@ -91,10 +91,10 @@
 
       <!-- Créditos / Watermark Kawaii -->
     </main>
-<!-- Contenedor oculto del reproductor de YouTube -->
-    <div id="youtube-audio-player" style="display: none;"></div>
+<!-- Contenedor técnico accesible para la API de YouTube -->
+    <div id="youtube-audio-player" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
 
-    <!-- YouTube IFrame API & Script de Autoplay -->
+    <!-- YouTube IFrame API & Script Optimizado -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
       let player;
@@ -105,14 +105,17 @@
 
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('youtube-audio-player', {
-          height: '0',
-          width: '0',
+          height: '200',
+          width: '200',
           videoId: 'scOW3MY4N1Q',
           playerVars: {
             'autoplay': 1,
             'controls': 0,
             'loop': 1,
-            'playlist': 'scOW3MY4N1Q'
+            'playlist': 'scOW3MY4N1Q',
+            'playsinline': 1,
+            'enablejsapi': 1,
+            'origin': window.location.origin
           },
           events: {
             'onReady': onPlayerReady,
@@ -122,19 +125,23 @@
       }
 
       function onPlayerReady(event) {
+        // Arrancar con mute para sortear el bloqueo de políticas de seguridad
+        event.target.mute();
         event.target.playVideo();
-        
-        // Desbloqueo suave si las directivas del navegador exigen interacción previa
-        const unlockAudio = () => {
-          if (player && typeof player.playVideo === 'function') {
+
+        // Al primer toque/clic en cualquier lugar, activar el audio completo
+        const unmuteAndPlay = () => {
+          if (player && typeof player.unMute === 'function') {
+            player.unMute();
+            player.setVolume(100);
             player.playVideo();
           }
-          document.removeEventListener('click', unlockAudio);
-          document.removeEventListener('touchstart', unlockAudio);
+          document.removeEventListener('click', unmuteAndPlay);
+          document.removeEventListener('touchstart', unmuteAndPlay);
         };
 
-        document.addEventListener('click', unlockAudio, { once: true });
-        document.addEventListener('touchstart', unlockAudio, { once: true });
+        document.addEventListener('click', unmuteAndPlay, { once: true });
+        document.addEventListener('touchstart', unmuteAndPlay, { once: true });
       }
 
       function onPlayerStateChange(event) {
@@ -152,9 +159,12 @@
       playPauseBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         if (!player) return;
+
         if (isPlaying) {
           player.pauseVideo();
         } else {
+          player.unMute();
+          player.setVolume(100);
           player.playVideo();
         }
       });
